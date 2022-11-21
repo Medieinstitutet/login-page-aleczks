@@ -18,25 +18,30 @@ Sidan skall innehålla en meny, en del för innehåll samt en footer.
 
 Menyn skall alltid visas och ändras dynamiskt för att visa rätt innehåll:
 
-En valfri logotyp eller en h1'a.
-Om besökaren ej är inloggad så skall ett inloggningsformulär visas.
+En valfri logotyp eller en h1'a. ✅
+
+Om besökaren ej är inloggad så skall ett inloggningsformulär visas. ✅
+
 Är besökaren inloggad så skall istället en logga-ut knapp visas.
+
 Innehålls -vyn skall dynamiskt växla mellan tre olika lägen:
 
-Välkomstsida för ej inloggade.
-Felmeddelande vid felaktig inlogging.
-Välkomstsida för inloggad besökare.
-Ditt projekt får enbart innehålla 1 st html sida, index.html alla vyer skall hanteras i denna.
+Välkomstsida för ej inloggade. ✅
+Felmeddelande vid felaktig inlogging. ✅
+Välkomstsida för inloggad besökare. ✅
+
+Ditt projekt får enbart innehålla 1 st html sida, index.html alla vyer skall hanteras i denna. ✅
 
 Funktionskrav (60p för G och 100p för VG)
 
 Ditt projekt skall kunna testas online via tex github pages. (10p)
 Sidan visar dynamiskt rätt innehåll hela tiden. (10p)
-Det går att logga in. (10p)
+Det går att logga in. (10p) ✅
 
 Inloggning sparas i localStorage, dvs det skall gå att ladda om webbläsaren och sidan kommer ihåg rätt inloggad användare och visar rätt vy. (10p)
 
 Välkomstsidan skall dynamiskt visa rätt användarnamn beroende på vem som är inloggad. (10p)
+
 Det går att logga ut. (10p)
 
 VG KRAV (40p)
