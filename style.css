@@ -22,16 +22,25 @@ form {
 .container {
     background-color: #fbfbfc83;
     padding: 20px;
-    max-width: 300px;
-    margin: 10px;   
+    width: 200px;
+    margin: 10px;  
+    margin-right: 50px;
 }
 
 #demo {
     font-size: xx-large;
+    color: orange;
 }
 #signup {
     background-color: #fbfbfc83;
     padding: 20px;
     max-width: 300px;
-    margin: 10px;   
+    margin: 10px;  
+    width: fit-content; 
+}
+.metadiv {
+    display: flex;
+    flex-direction: row;
+    
+    
 }

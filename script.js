@@ -3,51 +3,91 @@ console.log("Don't Panic");
 const loginBtn = document.getElementById('loginBtn');
 const signUpBtn = document.getElementById('signUpBtn');
 
+let userName = document.getElementById('userName');
+let password = document.getElementById('password');
+
 // sidan ska kunna spara användarna i localStorage
-// pusha newUser till 'users'-array(?)
 
 const users = [ 
     {"userName": "janne", "password": "test"},
-    {"userName": "Alecz", "password": "festar"},
+    {"userName": "alex", "password": "test1"},
     {"userName": "cheri", "password": "skinka"},
-    {"userName": "Leon", "password": "btc"}
+    {"userName": "leon", "password": "btc"}
  ]
-// ska försöka lägga till fler användare (VG type shi)
 
-signUpBtn.addEventListener('click', () => {
-    let newUser = document.getElementById('newUser').value;
-    let newPassword = document.getElementById('newPassword').value;
-
-for(i = 0; i < users.length; i++) {
-    if(newUser == users[i].userName && newPassword == users[i].password) {
-        demo.innerHTML = "Du är inloggad som " + userName; 
-    } else {
-        demo.innerHTML = "Användaren finns inte xd"
-    }
-  }
-});
+ // FÖR ATT KOLLA OM ETT NAMN FINNS
+ if (localStorage.getItem('userName')) {
+    printUserName();
+ } else {
+    printUserDoesNotExist();
+ };
 
 // behöver kunna få bort login-rutan vid knapptryck
-// behöver kunna lägga till en logga-ut-knapp: CreateElement
 
+// ännu ej fungerande kod för flera användare 
+ 
+loginBtn.addEventListener('click', () => { 
 
-// fungerar !!!!
-loginBtn.addEventListener('click', () => {
-    console.log('klick på knapp');
+    for (user in users.length) {
 
-    let user = users.find(user => user.userName == userName.value); 
-    console.log("janne", user)
+    let user = users.find(user => user.userName == password.value); 
+    console.log("janne", user) // loggas inte
 
-    let pass = users.find(user => user.password == password.value); 
-    console.log("test", pass)
+    let pass = users.find(user => user.password == userName.value); 
+    console.log("test", pass) // loggas inte
 
     if (user && pass) {
-        demo.innerHTML = "Välkommen, janne ";
-        //ta bort login-rutan
+        demo.innerHTML = "Välkommen tillbaka " + user;
     } else {
-        demo.innerHTML = "Du är inte janne ";   
+        demo.innerHTML = "Användaren finns inte ";   
     }
+
+        if(userName == users[i].userName && password == users[i].password) {
+            console.log('Klick på knapp'); //loggas ej
+    
+            demo.innerText = "Du är nu inloggad som " + userName; 
+        } else {
+            demo.innerText = "Användaren finns inte ";
+        }
+      }
+    });
+
+
+// ska försöka lägga till fler användare (VG type shi)
+// FÅNGA NYTT ANVÄNDARNAMN OCH SPARA I LS
+signUpBtn.addEventListener('click', () => {
+    
+    let newUser = newUser.value;
+    let newPassword = newPassword.value;
+    console.log('Vart är min variabel '); // loggas ej
+    localStorage.setItem('userName', userName);
+
+    // FÖRKORTNING: localStorage.setItem('userName', userName.value);
+    function printUserName() // ännu inte färdig
+    
 });
 
+function printUserName() {
+    // HÄMTA ANVNAMN FRÅN LS OCH SKRIV UT PÅ SIDAN
+    let userName = localStorage.getItem('userName');
+    demo.innerText = 'Du är ' + userName;
 
 
+
+}
+// TO DO: skapa en logout-button
+let logoutBtn = document.createElement('button')
+logoutBtn.innerText = 'Logga ut';
+logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('userName');
+    printUserDoesNotExist();
+})
+demo.appendchild(logoutBtn);
+
+function printUserDoesNotExist() {
+    // SKRIV ATT ANV INTE FINNS
+    demo.innerText = "Användaren finns inte xd "; 
+}
+
+
+// pusha newUser till 'users'-array ?
