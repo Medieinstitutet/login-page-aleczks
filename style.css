@@ -3,7 +3,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    color: aliceblue;
 }
+
+#showtime {
+    color: orange;
+    font-size: x-large;
+}
+
 h1 {
     margin-left: 10px;
 }
@@ -33,8 +40,11 @@ form {
 }
 
 #demo {
-    font-size: x-large;
+    font-size: xx-large;
     color: orange;
+    position: relative;
+    left: 30rem;
+    bottom: 10rem;
 }
 #signup {
     background-color: #fbfbfc83;
@@ -42,10 +52,6 @@ form {
     max-width: 300px;
     margin: 10px;  
     width: fit-content; 
-}
-.metadiv {
-    display: flex;
-    flex-direction: row;
-    
     
 }
+

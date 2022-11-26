@@ -33,13 +33,13 @@ Ditt projekt får enbart innehålla 1 st html sida ✅
 
 Funktionskrav (60p för G och 100p för VG)
 
-Ditt projekt skall kunna testas online via tex github pages. (10p)
-Sidan visar dynamiskt rätt innehåll hela tiden. (10p)
-Det går att logga in. (10p) 
+Ditt projekt skall kunna testas online via tex github pages. (10p) ✅
+Sidan visar dynamiskt rätt innehåll hela tiden. (10p) ✅
+Det går att logga in. (10p) ✅
 
 Inloggning sparas i localStorage, dvs det skall gå att ladda om webbläsaren och sidan kommer ihåg rätt inloggad användare och visar rätt vy. (10p)
 
-Välkomstsidan skall dynamiskt visa rätt användarnamn beroende på vem som är inloggad. (10p)
+Välkomstsidan skall dynamiskt visa rätt användarnamn beroende på vem som är inloggad. (10p) ✅
 
 Det går att logga ut. (10p)
 
