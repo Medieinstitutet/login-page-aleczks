@@ -26,6 +26,11 @@ form {
     margin: 10px;  
     margin-right: 50px;
 }
+#logout {
+    margin: 20px;
+    width: 80px;
+    height: 30px;
+}
 
 #demo {
     font-size: x-large;
