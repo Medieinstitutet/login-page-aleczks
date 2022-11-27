@@ -6,78 +6,76 @@ let users = [
     {id: 3, userName: "cheri", password: "skinka"}
  ];
 
- let accounts = [];
-
-const userNameInput = document.getElementById('userName');
-const passwordInput = document.getElementById('password');
+// hämtar element från login-rutan
+const userNameInput = document.getElementById('userNameInput');
+const passwordInput = document.getElementById('passwordInput');
 const loginBtn = document.getElementById('loginBtn');
-const logout = document.getElementById('logout');
 
-const signup = document.getElementById('signup');
+// hämtar element från signup-rutan
+// const signup = document.getElementById('signup');
 const signUpBtn = document.getElementById('signUpBtn');
-const newUser = document.getElementById('newUser');
+const newUserName = document.getElementById('newUserName');
 const newPassword = document.getElementById('newPassword');
 
+// div som skriver ut meddelanden på sidan
 const demo = document.getElementById('demo');
-logout.style.display = "none";
 
- // fungerade innan /;
+ // fungerar
  loginBtn.addEventListener('click', () => {
-    console.log('klick på knapp');
+    console.log('klick på knapp'); //loggas ut iaf
 
-    /* let userName = userName.value;
-    localStorage.setItem("userName", userName); */
+    let user = users.find(user => user.userName === userNameInput.value); 
+    console.log("janne", user) // loggas inte heller
 
-    let user = users.find(user => user.userName == userName.value); 
-    console.log("janne", user)
-
-     if (user.password == password.value) {
+     if (user.password === passwordInput.value) {
         console.log('hjälp-mig'); //loggas inte
-
-       demo.innerText = 'Välkommen! Du är inloggad som: ' + userName.value;
-
-       logout.style.display = ""; // logout-knappen dyker upp
-       signup.style.display = 'none'; //singin försvinner
+        printUserName();
 
     } else {
-       demo.innerText = 'Användarnamn eller lösenord stämmer inte ';
+       userDoesNotExist();
     } 
 }); 
  
 
-////////////////////////////////////////////////////
+
+
 ///////////////////////////////////////////////////
 // FUNKTIONER!!
+function printUserName() {
+    console.log('test printUserName'); // nej
+    demo.innerText = 'Välkommen! Du är inloggad som: ' + userNameInput.value;
 
-// LogoutBtn
-logout.addEventListener('click', () => {
-    demo.innerText = 'Du är nu utloggad ';
-   // localStorage.removeItem("userName");
-    logout.style.display = "none";
-});
+    // skapar en logga-ut-knapp
+    let logoutBtn = document.createElement("button")
+    logoutBtn.innerText = "Logga ut!";
+    demo.appendChild(logoutBtn);
+
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("userName");
+      demo.innerText = 'Du är nu utloggad ';
+    })
+}
+
+function userDoesNotExist() {
+    console.log('test userDoesNotExist'); 
+    demo.innerText = 'Användarnamn eller lösenord stämmer inte ';
+}
+
 
 // för att spara nya användare:
-
 signUpBtn.addEventListener('click', () => {
-    console.log('klick på knapp');
+    console.log('klick på knapp'); 
+
     let newUser = {
-        id: accounts.length + 1,
-        user: user.value,
-        password: password.value
+        id: users.length + 1,
+        userName: newUserName.value,
+        password: newPassword.value
 
     }
-    console.log('det funkar', newUser); //loggas inte
-    demo.innerText = 'Hope you like your new account, ' + user.value;
+    console.log('det funkar', newUser); 
+    demo.innerText = 'Hope you like your new account, ' + newUser.userName;
 
-    accounts.push('new user account ', newUser);
+    users.push(newUser);
+    console.log('users after push', users);
 });
 
-/*  signUpBtn.addEventListener('click', () => {
-
-    let newUser = newUser.value;
-    let newPassword = newPassword.value;
-    
-    localStorage.setItem('userName', userName);
-    localStorage.setItem('password', password);
-    
-});  */

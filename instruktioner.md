@@ -41,10 +41,12 @@ Inloggning sparas i localStorage, dvs det skall gå att ladda om webbläsaren oc
 
 Välkomstsidan skall dynamiskt visa rätt användarnamn beroende på vem som är inloggad. (10p) ✅
 
-Det går att logga ut. (10p)
+Det går att logga ut. (10p) ✅
 
 VG KRAV (40p)
-Det skall finnas fler användare (i tex en object array), dokumentera de andra användarna inför test i readme.md (20p)
+Det skall finnas fler användare (i tex en object array). ✅
+
+Dokumentera de andra användarna inför test i readme.md (20p) ✅
 
 Det skall gå att skapa och logga in med en ny användare (Då skall ett nytt formulär för detta visas på innehålls-sidan) Du skall då använda localStorage som databas för användare. (20p)
 
