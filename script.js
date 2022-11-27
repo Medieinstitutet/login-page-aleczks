@@ -64,8 +64,8 @@ function printUserName() {
       localStorage.removeItem("loggedInUser"); 
       demo.innerText = 'Du är nu utloggad ';
 
-      container.style.display = '';
-      signup.style.display = '';
+      container.style.display = 'block';
+      signup.style.display = 'block';
     })
 }
 
