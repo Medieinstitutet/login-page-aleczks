@@ -5,6 +5,7 @@ const passwordInput = document.getElementById('passwordInput');
 const loginBtn = document.getElementById('loginBtn');
 
 // hämtar element från signup-rutan
+const signup = document.getElementById('signup');
 const signUpBtn = document.getElementById('signUpBtn');
 const newUserName = document.getElementById('newUserName');
 const newPassword = document.getElementById('newPassword');
@@ -38,14 +39,9 @@ if(localStorage.getItem('loggedInUser')) {
         localStorage.setItem('loggedInUser', loggedInUser);
         
         printUserName();
-
-         userNameInput.style.display = 'none'; 
-        passwordInput.style.display = 'none';
-        loginBtn.style.display = 'none';
-        /* document.h2.style.display = 'none';
-        container.style.backgroundColor = 'black';  */
-        
-
+        container.style.display = 'none';
+        signup.style.display = 'none';
+    
     } else {
        userDoesNotExist();
     } 
@@ -68,10 +64,8 @@ function printUserName() {
       localStorage.removeItem("loggedInUser"); 
       demo.innerText = 'Du är nu utloggad ';
 
-      loginBtn.style.display = '';
-      userNameInput.style.display = ''; 
-      passwordInput.style.display = '';
-      document.h2.style.display = '';
+      container.style.display = '';
+      signup.style.display = '';
     })
 }
 
@@ -96,4 +90,6 @@ signUpBtn.addEventListener('click', () => {
 
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
+
+    signup.style.display = 'none';
 });

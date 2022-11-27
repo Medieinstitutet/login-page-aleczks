@@ -31,11 +31,18 @@ footer {
 }
 
 #demo {
-    font-size: x-large;
+    /* font-size: x-large;
     color: orange;
     position: relative;
     left: 17rem;
-    bottom: 10rem;
+    bottom: 10rem; */
+
+    width: 100%;
+    font-size: x-large;
+    color: orange;
+    position: relative;
+    left: 0;
+    bottom: 0;
 }
 #signup {
     padding: 20px;
