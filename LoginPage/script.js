@@ -1,10 +1,15 @@
 console.log("Don't Panic");
 
-let users = [ 
-    {id: 0, userName: "janne", password: "test"},
-    {id: 1, userName: "mirr", password: "123"},
-    {id: 3, userName: "cheri", password: "skinka"}
- ];
+//LADES TILL EFTER SENASTE FUNGERANDE COMMIT
+// if-else för ls
+if(localStorage.getItem('users')) { //varför är '!' vit?
+    let users = [ 
+        {id: 0, userName: "janne", password: "test"},
+        {id: 1, userName: "mirr", password: "123"},
+        {id: 2, userName: "cheri", password: "skinka"}
+     ]
+    localStorage.setItem('users', JSON.stringify(users));
+ } 
 
 // hämtar element från login-rutan
 const userNameInput = document.getElementById('userNameInput');
@@ -24,11 +29,19 @@ const demo = document.getElementById('demo');
  loginBtn.addEventListener('click', () => {
     console.log('klick på knapp'); //loggas ut iaf
 
+    //LADES TILL EFTER SENASTE FUNGERANDE COMMIT
+    let users = JSON.parse(localStorage.getItem('users')); //här kom felmeddelandet
+
     let user = users.find(user => user.userName === userNameInput.value); 
     console.log("janne", user) // loggas inte heller
 
      if (user.password === passwordInput.value) {
         console.log('hjälp-mig'); //loggas inte
+
+        //LADES TILL EFTER SENASTE FUNGERANDE COMMIT
+        let loggedInUser = userNameInput.value;
+        localStorage.setItem('loggedInUser', loggedInUser);
+
         printUserName();
 
     } else {
@@ -43,7 +56,11 @@ const demo = document.getElementById('demo');
 // FUNKTIONER!!
 function printUserName() {
     console.log('test printUserName'); // nej
-    demo.innerText = 'Välkommen! Du är inloggad som: ' + userNameInput.value;
+
+    //NY RAD FRÅN SENASTE COMMIT
+    let loggedInUser = localStorage.getItem('loggedInUser');
+
+    demo.innerText = 'Välkommen! Du är inloggad som: ' + loggedInUser + ' '; //NY
 
     // skapar en logga-ut-knapp
     let logoutBtn = document.createElement("button")
@@ -51,7 +68,7 @@ function printUserName() {
     demo.appendChild(logoutBtn);
 
     logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem("userName");
+      localStorage.removeItem("loggedInUser"); //NY 
       demo.innerText = 'Du är nu utloggad ';
     })
 }
@@ -65,6 +82,8 @@ function userDoesNotExist() {
 // för att spara nya användare:
 signUpBtn.addEventListener('click', () => {
     console.log('klick på knapp'); 
+    // NY
+    let users = JSON.parse(localStorage.getItem('users'));
 
     let newUser = {
         id: users.length + 1,
@@ -73,9 +92,10 @@ signUpBtn.addEventListener('click', () => {
 
     }
     console.log('det funkar', newUser); 
-    demo.innerText = 'Hope you like your new account, ' + newUser.userName;
+    demo.innerText = 'Grattis till ditt nya medlemsskap! ' + 
+    ' Prova att logga in nu, ' + newUser.userName + ' ;) ';
 
     users.push(newUser);
-    console.log('users after push', users);
+    // NY
+    localStorage.setItem('users', JSON.stringify(users));
 });
-
