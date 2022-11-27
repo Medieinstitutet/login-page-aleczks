@@ -1,4 +1,5 @@
 // hämtar element från login-rutan
+const container = document.getElementById('container');
 const userNameInput = document.getElementById('userNameInput');
 const passwordInput = document.getElementById('passwordInput');
 const loginBtn = document.getElementById('loginBtn');
@@ -31,16 +32,22 @@ if(localStorage.getItem('loggedInUser')) {
     let user = users.find(user => user.userName === userNameInput.value && user.password === passwordInput.value); 
   //  console.log("janne", user)
 
-     if (user) {
+     if (user) { 
 
         let loggedInUser = userNameInput.value;
         localStorage.setItem('loggedInUser', loggedInUser);
-
+        
         printUserName();
+
+         userNameInput.style.display = 'none'; 
+        passwordInput.style.display = 'none';
+        loginBtn.style.display = 'none';
+        /* document.h2.style.display = 'none';
+        container.style.backgroundColor = 'black';  */
+        
 
     } else {
        userDoesNotExist();
-       console.log('vill inte visa sig');
     } 
 }); 
 
@@ -51,6 +58,7 @@ function printUserName() {
     let loggedInUser = localStorage.getItem('loggedInUser');
     demo.innerText = 'Välkommen! Du är inloggad som: ' + loggedInUser + ' ';
 
+    
     // skapar en logga-ut-knapp
     let logoutBtn = document.createElement("button")
     logoutBtn.innerText = "Logga ut!";
@@ -59,6 +67,11 @@ function printUserName() {
     logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("loggedInUser"); 
       demo.innerText = 'Du är nu utloggad ';
+
+      loginBtn.style.display = '';
+      userNameInput.style.display = ''; 
+      passwordInput.style.display = '';
+      document.h2.style.display = '';
     })
 }
 

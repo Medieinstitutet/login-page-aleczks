@@ -18,8 +18,7 @@ footer {
     margin-left: 5px;
 }
 
-.container {
-    background-color: #fbfbfc83;
+#container {
     padding: 20px;
     width: 200px;
     margin: 10px;  
@@ -39,7 +38,6 @@ footer {
     bottom: 10rem;
 }
 #signup {
-    background-color: #fbfbfc83;
     padding: 20px;
     max-width: 300px;
     margin: 10px;  
