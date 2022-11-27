@@ -21,7 +21,7 @@ En valfri logotyp eller en h1'a. ✅
 
 Om besökaren ej är inloggad så skall ett inloggningsformulär visas. ✅
 
-Är besökaren inloggad så skall istället en logga-ut knapp visas.
+Är besökaren inloggad så skall istället en logga-ut knapp visas. ✅
 
 Innehålls -vyn skall dynamiskt växla mellan tre olika lägen:
 
@@ -37,7 +37,7 @@ Ditt projekt skall kunna testas online via tex github pages. (10p) ✅
 Sidan visar dynamiskt rätt innehåll hela tiden. (10p) ✅
 Det går att logga in. (10p) ✅
 
-Inloggning sparas i localStorage, dvs det skall gå att ladda om webbläsaren och sidan kommer ihåg rätt inloggad användare och visar rätt vy. (10p)
+Inloggning sparas i localStorage, dvs det skall gå att ladda om webbläsaren och sidan kommer ihåg rätt inloggad användare och visar rätt vy. (10p) ✅
 
 Välkomstsidan skall dynamiskt visa rätt användarnamn beroende på vem som är inloggad. (10p) ✅
 
@@ -48,7 +48,9 @@ Det skall finnas fler användare (i tex en object array). ✅
 
 Dokumentera de andra användarna inför test i readme.md (20p) ✅
 
-Det skall gå att skapa och logga in med en ny användare (Då skall ett nytt formulär för detta visas på innehålls-sidan) Du skall då använda localStorage som databas för användare. (20p)
+Det skall gå att skapa och logga in med en ny användare (Då skall ett nytt formulär för detta visas på innehålls-sidan) Du skall då använda localStorage som databas för användare. (20p) ✅
+
+
 
 Efter deadline kommer du att tilldelas slumpmässigt två andra lösningar att kodgranska.
 Läs mer om hur en kodgranskning går till under kapitlet kodgranskning. Båda kodgranskningarna måste vara inlämnade för att få G på uppgiften.
