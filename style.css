@@ -4,13 +4,8 @@ body {
     display: flex;
     flex-direction: column;
     color: aliceblue;
+    font-weight: 300;
 }
-
-#showtime {
-    color: orange;
-    font-size: x-large;
-}
-
 h1 {
     margin-left: 10px;
 }
@@ -19,13 +14,10 @@ h1, h2, p {
 }
 footer {
     margin-top: auto;
-    font-size: x-large;
+    font-size: large;
     margin-left: 5px;
 }
 
-form {
-    color: aliceblue;
-}
 .container {
     background-color: #fbfbfc83;
     padding: 20px;
