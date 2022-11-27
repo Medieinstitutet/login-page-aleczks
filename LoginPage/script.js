@@ -1,15 +1,22 @@
 console.log("Don't Panic");
 
-//LADES TILL EFTER SENASTE FUNGERANDE COMMIT
-// if-else för ls
-if(localStorage.getItem('users')) { //varför är '!' vit?
+/* // if-else för ls
+console.log("check for users");
+
+if(!localStorage.getItem('users')) { //!
+    console.log("inside if statement"); // nej
     let users = [ 
         {id: 0, userName: "janne", password: "test"},
         {id: 1, userName: "mirr", password: "123"},
         {id: 2, userName: "cheri", password: "skinka"}
      ]
+    console.log("users created", users); //nej
     localStorage.setItem('users', JSON.stringify(users));
+    console.log("users are saved to LS"); //nej
  } 
+else{
+ console.log("inside else, so users found");
+} */
 
 // hämtar element från login-rutan
 const userNameInput = document.getElementById('userNameInput');
@@ -25,20 +32,39 @@ const newPassword = document.getElementById('newPassword');
 // div som skriver ut meddelanden på sidan
 const demo = document.getElementById('demo');
 
+if(localStorage.getItem('users')) {
+    console.log('xd');
+} else {
+    console.log("inside if statement"); // nej
+    let users = [ 
+        {id: 0, userName: "janne", password: "test"},
+        {id: 1, userName: "mirr", password: "123"},
+        {id: 2, userName: "cheri", password: "skinka"}
+     ]
+    console.log("users created", users); //nej
+    localStorage.setItem('users', JSON.stringify(users));
+    console.log("users are saved to LS"); //nej
+}
+
+if(localStorage.getItem('loggedInUser')) {
+    printUserName();
+}
+
  // fungerar
  loginBtn.addEventListener('click', () => {
-    console.log('klick på knapp'); //loggas ut iaf
+    console.log('klick på knapp'); // yes
 
     //LADES TILL EFTER SENASTE FUNGERANDE COMMIT
-    let users = JSON.parse(localStorage.getItem('users')); //här kom felmeddelandet
+    let users = JSON.parse(localStorage.getItem('users'));
 
-    let user = users.find(user => user.userName === userNameInput.value); 
-    console.log("janne", user) // loggas inte heller
+    let user = users.find(user => user.userName === userNameInput.value && user.password === passwordInput.value); 
 
-     if (user.password === passwordInput.value) {
+    console.log("janne", user) // loggas inte
+    console.log(user);
+
+     if (user) {
         console.log('hjälp-mig'); //loggas inte
 
-        //LADES TILL EFTER SENASTE FUNGERANDE COMMIT
         let loggedInUser = userNameInput.value;
         localStorage.setItem('loggedInUser', loggedInUser);
 
@@ -46,6 +72,7 @@ const demo = document.getElementById('demo');
 
     } else {
        userDoesNotExist();
+       console.log('vill inte visa sig');
     } 
 }); 
  
@@ -55,12 +82,11 @@ const demo = document.getElementById('demo');
 ///////////////////////////////////////////////////
 // FUNKTIONER!!
 function printUserName() {
-    console.log('test printUserName'); // nej
+    console.log('test printUserName'); // yes
 
-    //NY RAD FRÅN SENASTE COMMIT
+    //NYA RADER FRÅN SENASTE COMMIT
     let loggedInUser = localStorage.getItem('loggedInUser');
-
-    demo.innerText = 'Välkommen! Du är inloggad som: ' + loggedInUser + ' '; //NY
+    demo.innerText = 'Välkommen! Du är inloggad som: ' + loggedInUser + ' ';
 
     // skapar en logga-ut-knapp
     let logoutBtn = document.createElement("button")
@@ -68,7 +94,7 @@ function printUserName() {
     demo.appendChild(logoutBtn);
 
     logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem("loggedInUser"); //NY 
+      localStorage.removeItem("loggedInUser"); 
       demo.innerText = 'Du är nu utloggad ';
     })
 }
