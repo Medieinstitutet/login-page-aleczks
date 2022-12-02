@@ -1,11 +1,9 @@
 // hämtar element från login-rutan
-const container = document.getElementById('container');
 const userNameInput = document.getElementById('userNameInput');
 const passwordInput = document.getElementById('passwordInput');
 const loginBtn = document.getElementById('loginBtn');
 
 // hämtar element från signup-rutan
-const signup = document.getElementById('signup');
 const signUpBtn = document.getElementById('signUpBtn');
 const newUserName = document.getElementById('newUserName');
 const newPassword = document.getElementById('newPassword');
@@ -33,17 +31,16 @@ if(localStorage.getItem('loggedInUser')) {
     let user = users.find(user => user.userName === userNameInput.value && user.password === passwordInput.value); 
   //  console.log("janne", user)
 
-     if (user) { 
+     if (user) {
 
         let loggedInUser = userNameInput.value;
         localStorage.setItem('loggedInUser', loggedInUser);
-        
+
         printUserName();
-        container.style.display = 'none';
-        signup.style.display = 'none';
-    
+
     } else {
        userDoesNotExist();
+       console.log('vill inte visa sig');
     } 
 }); 
 
@@ -54,7 +51,9 @@ function printUserName() {
     let loggedInUser = localStorage.getItem('loggedInUser');
     demo.innerText = 'Välkommen! Du är inloggad som: ' + loggedInUser + ' ';
 
-    
+    container.style.display = 'none';
+    signup.style.display = 'none';
+
     // skapar en logga-ut-knapp
     let logoutBtn = document.createElement("button")
     logoutBtn.innerText = "Logga ut!";
@@ -63,9 +62,8 @@ function printUserName() {
     logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("loggedInUser"); 
       demo.innerText = 'Du är nu utloggad ';
-
       container.style.display = 'block';
-      signup.style.display = 'block';
+        signup.style.display = 'block';
     })
 }
 
@@ -90,6 +88,4 @@ signUpBtn.addEventListener('click', () => {
 
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
-
-    signup.style.display = 'none';
 });
